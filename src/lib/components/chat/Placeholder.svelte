@@ -140,40 +140,7 @@
 						</div>
 					</div>
 
-					<div class="flex shrink-0 justify-center">
-						<div class="flex -space-x-4 mb-0.5" in:fade={{ duration: 100 }}>
-							{#each models as model, modelIdx}
-								<Tooltip
-									content={(models[modelIdx]?.info?.meta?.tags ?? [])
-										.map((tag) => tag.name.toUpperCase())
-										.join(', ')}
-									placement="top"
-								>
-									<button
-										aria-hidden={models.length <= 1}
-										aria-label={$i18n.t('Get information on {{name}} in the UI', {
-											name: models[modelIdx]?.name
-										})}
-										on:click={() => {
-											selectedModelIdx = modelIdx;
-										}}
-									>
-										<img
-											crossorigin="anonymous"
-											src={model?.info?.meta?.profile_image_url ??
-												($i18n.language === 'dg-DG'
-													? `${WEBUI_BASE_URL}/doge.png`
-													: `${WEBUI_BASE_URL}/static/surgiCal-small.png`)}
-											class=" size-9 @sm:size-10 rounded-full border-[1px] border-gray-100 dark:border-none"
-											aria-hidden="true"
-											draggable="false"
-										/>
-									</button>
-								</Tooltip>
-							{/each}
-						</div>
-					</div>
-
+					
 					<!-- 
 					<div
 						class=" text-3xl @sm:text-3xl line-clamp-1 flex items-center"
@@ -196,18 +163,37 @@
 				    -->
 				</div>
 
-				<!-- ///ADDITIONAL BLOCK FOR SURGI-CAL TExT BANNER   -->
+				<div class="flex mt-1 mb-2"></div>
+
+				<!-- ///ADDITIONAL BLOCK FOR SURGI-CAL TExT BANNER, AND SURGI-CAL ICON (JUST ABOVE CHAT TEXT INPUT TEXTBOX)  -->
 				
 				<div class="flex flex-row justify-center gap-3 @sm:gap-3.5 w-fit px-5 max-w-xl">
 					<div
 						class=" text-3xl @sm:text-3xl line-clamp-1 flex items-center"
 						in:fade={{ duration: 100 }}
 					>
-						{$i18n.t('Surgi-Cal Assistant')}
+						
+
+						
+
+							<div class="flex shrink-0 justify-center">
+								<div class=" self-center">
+									<img
+										id="logo"
+										crossorigin="anonymous"
+										src="{WEBUI_BASE_URL}/static/surgiCal-small.png"
+										class=" w-10 rounded-full"
+										alt=""
+									/>
+								</div>
+								<div class=" self-center">
+									{$i18n.t('Surgi-Cal Assistant')}
+								</div>
+							</div>
+							
+						
 					</div>
 				</div>
-
-
 
 				<!-- //// END ADDITIONAL BLOCK  -->
 
