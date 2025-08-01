@@ -216,7 +216,20 @@
 										{:else if mode === 'ldap'}
 											{$i18n.t(`Sign in to {{WEBUI_NAME}} with LDAP`, { WEBUI_NAME: $WEBUI_NAME })}
 										{:else if mode === 'signin'}
-											{$i18n.t(`Sign in to {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
+											<div class="flex shrink-0 justify-center">
+												<div class=" self-center">
+													<img
+														id="logo"
+														crossorigin="anonymous"
+														src="{WEBUI_BASE_URL}/static/surgiCal-small.png"
+														class=" w-10 rounded-full"
+														alt=""
+													/>
+												</div>
+												<div class=" self-center">
+													{$i18n.t(`{{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
+												</div>
+											</div>
 										{:else}
 											{$i18n.t(`Sign up to {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
 										{/if}
